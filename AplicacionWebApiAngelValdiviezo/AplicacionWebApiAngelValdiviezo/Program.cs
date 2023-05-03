@@ -1,4 +1,5 @@
 using AplicacionWebApiAngelValdiviezo;
+using AplicacionWebApiAngelValdiviezo.Extension;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationBdContext>(opciones => opciones.UseSqlServer("name=DefaultConnection"));
+
+builder.Services.AddFluentValidation(conf =>
+{
+    conf.RegisterValidatorsFromAssembly(typeof(ServiceExtAplication).Assembly);
+});
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddServiceExtensions();
 
 var app = builder.Build();
 

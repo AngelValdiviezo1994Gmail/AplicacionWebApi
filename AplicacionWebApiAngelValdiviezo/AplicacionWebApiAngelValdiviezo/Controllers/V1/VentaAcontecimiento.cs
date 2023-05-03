@@ -4,14 +4,12 @@ using Application.Features.VentaEntradas.Commands.GetListadoAcontecimientos;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AplicacionWebApiAngelValdiviezo.Controllers.V1
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class VentaAcontecimiento : ControllerBase
+    [ApiVersion("1.0")]
+    public class VentaAcontecimiento : ApiControllerBase
     {
 
         [HttpGet("GetListadoAcontecimientos")]
