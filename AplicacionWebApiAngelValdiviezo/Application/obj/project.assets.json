@@ -248,6 +248,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -686,6 +696,11 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -693,6 +708,7 @@
       "Ardalis.Specification >= 6.1.0",
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "Domain >= 1.0.0",
       "MediatR >= 12.0.1",
       "Microsoft.Extensions.Configuration.Abstractions >= 7.0.0",
       "Microsoft.Extensions.Configuration.Binder >= 7.0.4",
@@ -732,7 +748,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\source\\repos\\AplicacionWeb\\BackEnd-Api\\AplicacionWebApi\\AplicacionWebApiAngelValdiviezo\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\AplicacionWeb\\BackEnd-Api\\AplicacionWebApi\\AplicacionWebApiAngelValdiviezo\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
