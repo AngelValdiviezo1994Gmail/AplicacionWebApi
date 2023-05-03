@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\AplicacionWeb\BackEnd-Api\AplicacionWebApi\AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo\obj\Debug\net6.0\AplicacionWebApiAngelValdiviezo.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\AplicacionWeb\BackEnd-Api\AplicacionWebApi\AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo\obj\Debug\net6.0\AplicacionWebApiAngelValdiviezo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\AplicacionWeb\BackEnd-Api\AplicacionWebApi\AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo\obj\Debug\net6.0\AplicacionWebApiAngelValdiviezo.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\AplicacionWeb\BackEnd-Api\AplicacionWebApi\AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo\obj\Debug\net6.0\AplicacionWebApiAngelValdiviezo.AssemblyInfo.cs
+C:\Users\User\source\repos\AplicacionWeb\BackEnd-Api\AplicacionWebApi\AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo\obj\Debug\net6.0\AplicacionWebApiAngelValdiviezo.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\AplicacionWeb\BackEnd-Api\AplicacionWebApi\AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo\obj\Debug\net6.0\AplicacionWebApiAngelValdiviezo.MvcApplicationPartsAssemblyInfo.cache

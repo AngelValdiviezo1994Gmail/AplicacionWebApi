@@ -5,6 +5,18 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionWebApiAngelValdiviezo", "AplicacionWebApiAngelValdiviezo\AplicacionWebApiAngelValdiviezo.csproj", "{18A85340-DB3D-4730-AB48-2C1C2292A809}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentacion", "Presentacion", "{6A269A2A-8F13-472B-8E05-A31AFB9C1BF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructura", "Infraestructura", "{5C9C9169-D010-42B7-A755-D532E774447A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{B732981D-2D64-4305-9044-3CDBB868E3D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C79F087D-2F78-4270-A8C8-2ECA75CB1BEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{2510A045-B62D-45BB-8106-75FA2DD25ADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{42428E35-C46D-4E6C-BEB7-19BE57B4BF99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +27,27 @@ Global
 		{18A85340-DB3D-4730-AB48-2C1C2292A809}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18A85340-DB3D-4730-AB48-2C1C2292A809}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18A85340-DB3D-4730-AB48-2C1C2292A809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79F087D-2F78-4270-A8C8-2ECA75CB1BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79F087D-2F78-4270-A8C8-2ECA75CB1BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79F087D-2F78-4270-A8C8-2ECA75CB1BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79F087D-2F78-4270-A8C8-2ECA75CB1BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2510A045-B62D-45BB-8106-75FA2DD25ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2510A045-B62D-45BB-8106-75FA2DD25ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2510A045-B62D-45BB-8106-75FA2DD25ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2510A045-B62D-45BB-8106-75FA2DD25ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42428E35-C46D-4E6C-BEB7-19BE57B4BF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42428E35-C46D-4E6C-BEB7-19BE57B4BF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42428E35-C46D-4E6C-BEB7-19BE57B4BF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42428E35-C46D-4E6C-BEB7-19BE57B4BF99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18A85340-DB3D-4730-AB48-2C1C2292A809} = {6A269A2A-8F13-472B-8E05-A31AFB9C1BF6}
+		{C79F087D-2F78-4270-A8C8-2ECA75CB1BEB} = {B732981D-2D64-4305-9044-3CDBB868E3D5}
+		{2510A045-B62D-45BB-8106-75FA2DD25ADE} = {B732981D-2D64-4305-9044-3CDBB868E3D5}
+		{42428E35-C46D-4E6C-BEB7-19BE57B4BF99} = {5C9C9169-D010-42B7-A755-D532E774447A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4030C445-6E74-4C34-9615-523A8D126E84}
