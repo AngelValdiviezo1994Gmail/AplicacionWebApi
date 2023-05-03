@@ -39,4 +39,11 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Acontecimientos\Dto\" />
+    <Folder Include="Features\Acontecimientos\Specifications\" />
+    <Folder Include="Features\Acontecimientos\Queries\" />
+    <Folder Include="Features\Eventos\Queries\" />
+  </ItemGroup>
+
 </Project>

@@ -60,6 +60,7 @@ try
                 Url = new Uri("https://github.com/AngelValdiviezo1994Gmail/AplicacionWebApi/tree/main/AplicacionWebApiAngelValdiviezo"),
             }
         });
+        /*
         c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
         {
             Description = "Jwt Authorization",
@@ -82,10 +83,12 @@ try
                 new string[]{}
             }
         });
+        */
         var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
         c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
     });
 
+    /*
     builder.Services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -129,6 +132,7 @@ try
             }
         };
     });
+    */
 
     builder.Services.AddFluentValidation(conf =>
     {
@@ -145,12 +149,13 @@ try
     });
 
     var app = builder.Build();
-
+    /*
     // Configure the HTTP request pipeline.
     app.UseSerilogRequestLogging(configure =>
     {
         configure.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000}ms";
     }); // We want to log all HTTP requests
+    */
 
     if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     {
@@ -163,8 +168,8 @@ try
 
     app.UseHttpsRedirection();
     app.UseCors();
-    app.UseAuthentication();
-    app.UseAuthorization();
+    //app.UseAuthentication();
+    //app.UseAuthorization();
     app.UseErrorHandlerMiddleware();
     app.MapControllers();
     app.Run();
