@@ -1,5 +1,6 @@
 ﻿using Application.Common.Wrappers;
 using Application.Features.VentaEntradas.Commands.CreateVenta;
+using Application.Features.VentaEntradas.Commands.GetListadoAcontecimientos;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -16,20 +17,19 @@ namespace AplicacionWebApiAngelValdiviezo.Controllers.V1
         [HttpGet("GetListadoAcontecimientos")]
         [EnableCors("AllowOrigin")]
         [ProducesResponseType(typeof(ResponseType<string>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAcontecimientos(string? codUdn, string? codArea, string? codScc, string? colaborador, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAcontecimientos(CancellationToken cancellationToken)
         {
-            GetListadoColaboradoresRequest request = new GetListadoColaboradoresRequest
+            GetListadoAcontecimientosRequest request = new GetListadoAcontecimientosRequest
             {
-                Udn = codUdn ?? "",
-                Area = codArea ?? "",
-                Scc = codScc ?? "",
-                Colaborador = colaborador ?? ""
+               idAcontecimiento = 0,
             };
 
-            var objResult = await Mediator.Send(new GetListadoColaboradoresCommand(request), cancellationToken);
+            var objResult = await Mediator.Send(new GetListadoAcontecimientosCommand(request), cancellationToken);
 
             return Ok(objResult);
         }
+
+        /*
 
         [HttpPost("CreateVenta")]
         [EnableCors("AllowOrigin")]
@@ -42,5 +42,6 @@ namespace AplicacionWebApiAngelValdiviezo.Controllers.V1
             return Ok(objResult);
 
         }
+        */
     }
 }

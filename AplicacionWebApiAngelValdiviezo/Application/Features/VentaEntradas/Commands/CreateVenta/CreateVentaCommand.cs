@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 namespace Application.Features.VentaEntradas.Commands.CreateVenta
 {
     public record CreateClienteCommand(CreateVentaRequest ClienteRequest) : IRequest<ResponseType<string>>;
-
+    /*
     public class CreateClienteCommandHandler : IRequestHandler<CreateClienteCommand, ResponseType<string>>
     {
         private readonly IRepositoryAsync<FamiliarColaborador> _repoFamiColAsync;
@@ -149,7 +149,7 @@ namespace Application.Features.VentaEntradas.Commands.CreateVenta
                         {
                             CodigoIntegracion = clienteSebeli is not null ? clienteSebeli.IdCliente.ToString() : string.Empty,
                             CodigoConvivencia = infoEmp is not null ? infoEmp.CodigoBiometrico : string.Empty,
-                            //Alias = infoEmp.Nombres.Split(" ")[0], /*objProspecto.Alias*/
+                            //Alias = infoEmp.Nombres.Split(" ")[0], 
                             TipoIdentificacion = objClient.TipoIdentificacion,
                             //Nombres = infoEmp.Nombres,
                             //Apellidos = infoEmp?.Apellidos,
@@ -173,10 +173,9 @@ namespace Application.Features.VentaEntradas.Commands.CreateVenta
                     }
                     else
                     {
-                        //objClient.Id = /*Guid.NewGuid();*/
                         objClientResul.CodigoIntegracion = clienteSebeli is not null ? clienteSebeli.IdCliente.ToString() : string.Empty;
                         objClientResul.CodigoConvivencia = infoEmp is not null ? infoEmp.CodigoBiometrico : string.Empty;
-                        //objClientResul.Alias = infoEmp.Nombres.Split(" ")[0]; /*objProspecto.Alias*/
+                        //objClientResul.Alias = infoEmp.Nombres.Split(" ")[0]; /*objProspecto.Alias
                         objClientResul.TipoIdentificacion = objClient.TipoIdentificacion;
                         //objClientResul.Nombres = infoEmp.Nombres;
                         //objClientResul.Apellidos = infoEmp?.Apellidos;
@@ -309,5 +308,5 @@ namespace Application.Features.VentaEntradas.Commands.CreateVenta
             return (true, "Se ha actualizado correctamente");
         }
     }
-
+    */
 }
