@@ -12,6 +12,25 @@ namespace AplicacionWebApiAngelValdiviezo.Controllers.V1
     [ApiController]
     public class VentaAcontecimiento : ControllerBase
     {
+
+        [HttpGet("GetListadoAcontecimientos")]
+        [EnableCors("AllowOrigin")]
+        [ProducesResponseType(typeof(ResponseType<string>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAcontecimientos(string? codUdn, string? codArea, string? codScc, string? colaborador, CancellationToken cancellationToken)
+        {
+            GetListadoColaboradoresRequest request = new GetListadoColaboradoresRequest
+            {
+                Udn = codUdn ?? "",
+                Area = codArea ?? "",
+                Scc = codScc ?? "",
+                Colaborador = colaborador ?? ""
+            };
+
+            var objResult = await Mediator.Send(new GetListadoColaboradoresCommand(request), cancellationToken);
+
+            return Ok(objResult);
+        }
+
         [HttpPost("CreateVenta")]
         [EnableCors("AllowOrigin")]
         [ProducesResponseType(typeof(ResponseType<string>), StatusCodes.Status201Created)]
