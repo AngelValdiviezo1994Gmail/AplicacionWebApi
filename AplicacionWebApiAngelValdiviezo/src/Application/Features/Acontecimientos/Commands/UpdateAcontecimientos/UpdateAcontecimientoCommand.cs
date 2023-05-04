@@ -1,6 +1,7 @@
 ﻿using AngelValdiviezoWebApi.Application.Common.Exceptions;
 using AngelValdiviezoWebApi.Application.Common.Interfaces;
 using AngelValdiviezoWebApi.Application.Common.Wrappers;
+using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Interfaces;
 using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Specifications;
 using AngelValdiviezoWebApi.Domain.Entities.Acontecimientos;
 using AngelValdiviezoWebApi.Domain.Entities.Notificacion;
@@ -15,54 +16,43 @@ using System.Threading.Tasks;
 
 namespace AngelValdiviezoWebApi.Application.Features.Acontecimientos.Commands.UpdateAcontecimientos
 {
-    public record UpdateAcontecimientoCommand(int idAcontecimiento, int idEvento, DateTime Fecha, string Lugar, int NumeroEntrada, string Descripcion, int Precio) : IRequest<ResponseType<string>>;
+    public record UpdateAcontecimientoCommand(int idAcontecimiento, int idEvento, string NombreEvento, DateTime Fecha, string Lugar, int NumeroEntrada, string Descripcion, int Precio) : IRequest<ResponseType<string>>;
     public class UpdateAcontecimientoCommandQuery : IRequestHandler<UpdateAcontecimientoCommand, ResponseType<string>>
     {
-        private readonly IConfiguration _config;
 
-        private readonly IApisConsumoAsync _repositoryApis;
-        private readonly IRepositoryAsync<AcontecimientosModels> _repoAcont;        
+        private readonly IAcontecimientos _repositoryAcontecimiento;       
 
-        public UpdateAcontecimientoCommandQuery(IRepositoryAsync<AcontecimientosModels> repoAcont, IConfiguration config, IApisConsumoAsync repositoryApis)
+        public UpdateAcontecimientoCommandQuery(
+           IAcontecimientos acontecimientos)
         {
-            _config = config;
-            _repositoryApis = repositoryApis;
-            _repoAcont = repoAcont;
+            _repositoryAcontecimiento = acontecimientos;
         }
 
         public async Task<ResponseType<string>> Handle(UpdateAcontecimientoCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var pbjAcontecimiento = await _repoAcont.FirstOrDefaultAsync(new AcontecimientosByIdSpec(request.idAcontecimiento), cancellationToken);
-
-                if (pbjAcontecimiento is null)
+                AcontecimientosModels acontecimientos = new AcontecimientosModels()
                 {
-                    return new ResponseType<string>() { Succeeded = false, Data = null, Message = CodeMessageResponse.GetMessageByCode("201", "No existe registro para actualizar"), StatusCode = "201" };
-                }
+                    Descripcion = request.Descripcion,
+                    Estado = true,
+                    Fecha = request.Fecha,
+                    idAcontecimiento = request.idAcontecimiento,
+                    idEvento = request.idEvento,
+                    Lugar = request.Lugar,
+                    NumeroEntrada = request.NumeroEntrada,
+                    Precio = request.Precio,
+                    nombreEvento =  request.NombreEvento,                    
+                };
 
-                if (pbjAcontecimiento is not null)
-                {
 
-                    var objActualizar = new
-                    {
-                        idEvento = request.idEvento,
-                        Fecha = request.Fecha,
-                        Lugar = request.Lugar,
-                        NumeroEntrada = request.NumeroEntrada,
-                        Descripcion = request.Descripcion,
-                        Precio = request.Precio,
-                    };
-
-                    var objData1 = await _repositoryApis.PutEndPoint(objActualizar);
-
-                }
+                var objData1 = await _repositoryAcontecimiento.UpdateAcontecimiento(acontecimientos, cancellationToken);
 
 
 
-                return new ResponseType<string>() { Succeeded = true, Data = null, Message = CodeMessageResponse.GetMessageByCode("200", "La solicitud ha sido "), StatusCode = "200" };
+                return new ResponseType<string>() { Succeeded = true, Data = null, Message = CodeMessageResponse.GetMessageByCode("200", "El registro ha sido "), StatusCode = "200" };
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new ResponseType<string>() { Succeeded = false, Data = null, Message = CodeMessageResponse.GetMessageByCode("201"), StatusCode = "201" };
             }

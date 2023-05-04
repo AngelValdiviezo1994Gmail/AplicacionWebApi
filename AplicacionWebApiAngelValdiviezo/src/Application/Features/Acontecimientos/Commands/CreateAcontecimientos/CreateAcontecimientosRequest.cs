@@ -15,6 +15,9 @@ namespace AngelValdiviezoWebApi.Application.Features.Acontecimientos.Commands.Cr
         [JsonPropertyName("Fecha")]
         public DateTime Fecha { get; set; }
 
+        [JsonPropertyName("nombreEvento")]
+        public string NombreEvento { get; set; }
+
         [JsonPropertyName("Lugar")]
         public string Lugar { get; set; }
 

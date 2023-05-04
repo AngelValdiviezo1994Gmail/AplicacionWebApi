@@ -61,11 +61,13 @@ namespace AngelValdiviezoWebApi.Application.Features.Eventos.Commands.GetListaAc
                 {
                     idAcontecimiento = objAcontecimiento.idAcontecimiento,
                     idEvento = objAcontecimiento.idEvento,
+                    nombreEvento = objAcontecimiento.nombreEvento,
                     Descripcion = objAcontecimiento.Descripcion,
                     Fecha = objAcontecimiento.Fecha,
                     Lugar = objAcontecimiento.Lugar,
                     NumeroEntrada = objAcontecimiento.NumeroEntrada,
-                    Precio = objAcontecimiento.Precio
+                    Precio = objAcontecimiento.Precio,
+                    Estado = objAcontecimiento.Estado
                 }
                  );
             }

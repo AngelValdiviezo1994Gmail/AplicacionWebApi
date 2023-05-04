@@ -1,8 +1,10 @@
 ﻿
 using AngelValdiviezoWebApi.Application.Common.Interfaces;
+using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Interfaces;
 using AngelValdiviezoWebApi.Application.Features.Eventos.Interfaces;
 using AngelValdiviezoWebApi.Persistence.Contexts;
 using AngelValdiviezoWebApi.Persistence.Repository;
+using AngelValdiviezoWebApi.Persistence.Repository.Acontecimientos;
 using AngelValdiviezoWebApi.Persistence.Repository.Eventos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +40,9 @@ public static class ServiceExtensions
         services.AddTransient<ILdapUserService, LdapUserService>();
         services.AddTransient<IApisConsumoAsync, ApisConsumoAsync>();
         */
+
+        services.AddTransient<IAcontecimientos, AcontecimientoService>();
+        //services.AddTransient<IAcontecimientos, AcontecimientoService>();
         #endregion
 
         return services;

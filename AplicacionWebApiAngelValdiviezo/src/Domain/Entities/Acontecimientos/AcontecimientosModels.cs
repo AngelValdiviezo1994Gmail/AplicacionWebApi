@@ -18,24 +18,28 @@ namespace AngelValdiviezoWebApi.Domain.Entities.Acontecimientos
         [Column("idEvento", Order = 1, TypeName = "int")]
         public int idEvento { get; set; }
 
-        [Column("Fecha", Order = 2, TypeName = "datetime")]
+        [Column("nombreEvento", Order = 2, TypeName = "nvarchar")]
+        [StringLength(150)]
+        public string nombreEvento { get; set; }
+
+        [Column("Fecha", Order = 3, TypeName = "datetime")]
         public DateTime Fecha { get; set; }
 
-        [Column("Lugar", Order = 3, TypeName = "nvarchar")]
+        [Column("Lugar", Order = 4, TypeName = "nvarchar")]
         [StringLength(150)]
         public string Lugar { get; set; }
 
-        [Column("NumeroEntrada", Order = 4, TypeName = "int")]
+        [Column("NumeroEntrada", Order = 5, TypeName = "int")]
         public int NumeroEntrada { get; set; }
 
-        [Column("Descripcion", Order = 5, TypeName = "nvarchar")]
+        [Column("Descripcion", Order = 6, TypeName = "nvarchar")]
         [StringLength(150)]
         public string Descripcion { get; set; }
 
-        [Column("Precio", Order = 6, TypeName = "int")]
+        [Column("Precio", Order = 7, TypeName = "int")]
         public int Precio { get; set; }
 
-        [Column("Estado", Order = 7, TypeName = "bit")]
-        public int Estado { get; set; }
+        [Column("Estado", Order = 8, TypeName = "bit")]
+        public bool Estado { get; set; }
     }
 }

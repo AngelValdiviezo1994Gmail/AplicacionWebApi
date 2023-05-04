@@ -1,5 +1,6 @@
 ﻿using AngelValdiviezoWebApi.Application.Common.Wrappers;
 using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Commands.CreateAcontecimientos;
+using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Commands.DeleteLogicoAcontecimientos;
 using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Commands.UpdateAcontecimientos;
 using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Dto;
 using AngelValdiviezoWebApi.Application.Features.Eventos.Commands.GetListaAcontecimientos;
@@ -30,17 +31,25 @@ namespace AngelValdiviezoWebApi.Controllers.v1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> CreateVentaEntrada([FromBody] CreateAcontecimientosRequest request, CancellationToken cancellationToken)
         {
-            var query = new CreateAcontecimientosCommand(request);
-            var objResult = await Mediator.Send(query, cancellationToken);
+            var objResult = await Mediator.Send(new CreateAcontecimientosCommand(request), cancellationToken);
             return Ok(objResult);
         }
 
         [EnableCors("AllowOrigin")]
         [HttpPut("UpdateVentaEntrada")]
         [ProducesResponseType(typeof(ResponseType<string>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> UpdateVentaEntrada(int idAcontecimiento, int idEvento, DateTime Fecha, string Lugar, int NumeroEntrada, string Descripcion, int Precio, CancellationToken cancellationToken)
+        public async Task<IActionResult> UpdateVentaEntrada(int idAcontecimiento, int idEvento, String nombreEvento, DateTime Fecha, string Lugar, int NumeroEntrada, string Descripcion, int Precio, CancellationToken cancellationToken)
         {
-            var objResult = await Mediator.Send(new UpdateAcontecimientoCommand(idAcontecimiento, idEvento,Fecha,Lugar,NumeroEntrada,Descripcion,Precio), cancellationToken);
+            var objResult = await Mediator.Send(new UpdateAcontecimientoCommand(idAcontecimiento, idEvento, nombreEvento,Fecha, Lugar,NumeroEntrada,Descripcion,Precio), cancellationToken);
+            return Ok(objResult);
+        }
+
+        [EnableCors("AllowOrigin")]
+        [HttpPut("EliminaVentaEntrada")]
+        [ProducesResponseType(typeof(ResponseType<string>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> EliminaVentaEntrada(int idAcontecimiento, int idEvento, String nombreEvento, DateTime Fecha, string Lugar, int NumeroEntrada, string Descripcion, int Precio, CancellationToken cancellationToken)
+        {
+            var objResult = await Mediator.Send(new DeleteLogicoAcontecimientoCommand(idAcontecimiento, idEvento, nombreEvento, Fecha, Lugar, NumeroEntrada, Descripcion, Precio), cancellationToken);
             return Ok(objResult);
         }
 

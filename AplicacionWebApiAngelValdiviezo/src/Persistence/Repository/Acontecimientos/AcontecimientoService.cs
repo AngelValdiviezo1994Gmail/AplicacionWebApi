@@ -26,7 +26,7 @@ namespace AngelValdiviezoWebApi.Persistence.Repository.Acontecimientos
             _repositoryAcontecimientoAsync = repositoryAcontecimientoAsync;
         }
 
-        public async Task<ResponseType<AcontecimientosResponseType>> CreateAcontecimiento(CreateAcontecimientosRequest Request, CancellationToken cancellationToken)
+        public async Task<ResponseType<string>> CreateAcontecimiento(CreateAcontecimientosRequest Request, CancellationToken cancellationToken)
         {
             try
             {
@@ -36,25 +36,64 @@ namespace AngelValdiviezoWebApi.Persistence.Repository.Acontecimientos
                 AcontecimientosModels objAcont = new()
                 {
                     idEvento = Request.IdEvento,
+                    nombreEvento = Request.NombreEvento,
                     Descripcion = Request.Descripcion,
                     Fecha = Request.Fecha,
                     Lugar= Request.Lugar,
                     NumeroEntrada = Request.NumeroEntrada,
-                    Precio = Request.Precio 
+                    Precio = Request.Precio,
+                    Estado = true
                 };
 
                 var objResultado = await _repositoryAcontecimientoAsync.AddAsync(objAcont, cancellationToken);
                 if (objResultado is null)
                 {
-                    return new ResponseType<AcontecimientosResponseType>() { Message = "No se ha podido registrar su información", StatusCode = "101", Succeeded = true };
+                    return new ResponseType<string>() { Message = "No se ha podido registrar su información", StatusCode = "101", Succeeded = true };
                 }
 
-                return new ResponseType<AcontecimientosResponseType>() { Data = objResultFinal, Message = "Marcación registrada correctamente", StatusCode = "100", Succeeded = true };
+                return new ResponseType<string>() { Data = null, Message = "Registro ingresado correctamente", StatusCode = "100", Succeeded = true };
 
             }
             catch (Exception ex)
             {
-                return new ResponseType<AcontecimientosResponseType>() { Message = CodeMessageResponse.GetMessageByCode("102"), StatusCode = "102", Succeeded = false };
+                return new ResponseType<string>() { Message = CodeMessageResponse.GetMessageByCode("102"), StatusCode = "102", Succeeded = false };
+            }
+
+
+        }
+
+
+        public async Task<ResponseType<string>> UpdateAcontecimiento(AcontecimientosModels Request, CancellationToken cancellationToken)
+        {
+            try
+            {
+                await _repositoryAcontecimientoAsync.UpdateAsync(Request, cancellationToken);
+                
+
+                return new ResponseType<string>() { Data = null, Message = "Registro ingresado correctamente", StatusCode = "100", Succeeded = true };
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseType<string>() { Message = CodeMessageResponse.GetMessageByCode("102"), StatusCode = "102", Succeeded = false };
+            }
+
+
+        }
+
+        public async Task<ResponseType<string>> DeleteLogicoAcontecimiento(AcontecimientosModels Request, CancellationToken cancellationToken)
+        {
+            try
+            {
+                await _repositoryAcontecimientoAsync.UpdateAsync(Request, cancellationToken);
+
+
+                return new ResponseType<string>() { Data = null, Message = "Registro ingresado correctamente", StatusCode = "100", Succeeded = true };
+
+            }
+            catch (Exception ex)
+            {
+                return new ResponseType<string>() { Message = CodeMessageResponse.GetMessageByCode("102"), StatusCode = "102", Succeeded = false };
             }
 
 
