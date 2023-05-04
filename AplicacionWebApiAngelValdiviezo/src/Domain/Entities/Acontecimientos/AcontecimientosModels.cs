@@ -12,6 +12,7 @@ namespace AngelValdiviezoWebApi.Domain.Entities.Acontecimientos
     public class AcontecimientosModels
     {
         [Column("idAcontecimiento", Order = 0, TypeName = "int")]
+        [Key]
         public int idAcontecimiento { get; set; }
 
         [Column("idEvento", Order = 1, TypeName = "int")]
@@ -33,5 +34,8 @@ namespace AngelValdiviezoWebApi.Domain.Entities.Acontecimientos
 
         [Column("Precio", Order = 6, TypeName = "int")]
         public int Precio { get; set; }
+
+        [Column("Estado", Order = 7, TypeName = "bit")]
+        public int Estado { get; set; }
     }
 }

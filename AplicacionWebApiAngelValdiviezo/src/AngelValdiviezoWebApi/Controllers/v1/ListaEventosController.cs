@@ -1,5 +1,6 @@
 ﻿using AngelValdiviezoWebApi.Application.Common.Wrappers;
 using AngelValdiviezoWebApi.Application.Features.Eventos.Commands;
+using AngelValdiviezoWebApi.Application.Features.Eventos.Commands.GetListaEventos;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 

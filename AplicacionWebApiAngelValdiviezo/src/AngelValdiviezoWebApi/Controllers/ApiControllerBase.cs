@@ -8,7 +8,7 @@ namespace AngelValdiviezoWebApi.Controllers;
 [ApiController]
 [Route("api/v{version:apiVersion}/[controller]")]
 [Produces("application/json")]
-[Authorize]
+//[Authorize]
 public abstract class ApiControllerBase : ControllerBase
 {
     private IMediator _mediator = null!;

@@ -143,8 +143,7 @@ try
     builder.Services.AddServiceExtensions();
     builder.Services.Configure<ForwardedHeadersOptions>(options =>
     {
-        options.ForwardedHeaders =
-            ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
         //options.KnownProxies.Add(IPAddress.Parse("127.0.10.1"));
     });
 

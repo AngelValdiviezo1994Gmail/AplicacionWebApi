@@ -12,15 +12,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AngelValdiviezoWebApi.Application.Features.Eventos.Commands
+namespace AngelValdiviezoWebApi.Application.Features.Eventos.Commands.GetListaEventos
 {
     public record GetListEventosCommand() : IRequest<ResponseType<List<EventosType>>>;
 
     public class GetListEventosCommandHandler : IRequestHandler<GetListEventosCommand, ResponseType<List<EventosType>>>
     {
-        private readonly IRepositoryAsync<EventosModels> _repositoryEventosAsync;
+        private readonly IRepositoryAsync<tblEventoNextTi> _repositoryEventosAsync;
 
-        public GetListEventosCommandHandler(IRepositoryAsync<EventosModels> repositoryEvAsync)
+        public GetListEventosCommandHandler(IRepositoryAsync<tblEventoNextTi> repositoryEvAsync)
         {
             _repositoryEventosAsync = repositoryEvAsync;
         }
@@ -29,16 +29,18 @@ namespace AngelValdiviezoWebApi.Application.Features.Eventos.Commands
         {
             try
             {
-                var data = await _repositoryEventosAsync.ListAsync(new GetListEventsConvivenciaSpec(), cancellationToken);
+                //_repositoryEventosAsync.AddAsync
+                //_repositoryEventosAsync.UpdateAsync
+                var data = await  _repositoryEventosAsync.ListAsync(new GetListEventsConvivenciaSpec(), cancellationToken);
 
                 if (!data.Any())
-                    return new ResponseType<List<EventosType>>() { Data = null, Message = "Colaborador no tiene roles asignados", StatusCode = "001", Succeeded = false };
+                    return new ResponseType<List<EventosType>>() { Data = null, Message = "No existen eventos en base", StatusCode = "001", Succeeded = false };
 
 
                 var response = ProcesoListadoEventos(data);
 
-                return new ResponseType<List<EventosType>>() { Data = response, Message = CodeMessageResponse.GetMessageByCode("100"), StatusCode = "100", Succeeded = true };
-            
+                return new ResponseType<List<EventosType>>() { Data = response, Message = CodeMessageResponse.GetMessageByCode("000"), StatusCode = "000", Succeeded = true };
+
             }
             catch (Exception)
             {
@@ -46,18 +48,18 @@ namespace AngelValdiviezoWebApi.Application.Features.Eventos.Commands
             }
         }
 
-        public static List<EventosType> ProcesoListadoEventos(List<EventosModels> lstEventos)
+        public static List<EventosType> ProcesoListadoEventos(List<tblEventoNextTi> lstEventos)
         {
             var res = new List<EventosType>();
 
             foreach (var objEvento in lstEventos)
             {
-               res.Add(new()
-                    {
-                        idEvento = objEvento.idEvento,
-                        nombreEvento = objEvento.nombreEvento
-                    }
-                );
+                res.Add(new()
+                {
+                    idEvento = objEvento.idEvento,
+                    nombreEvento = objEvento.nombreEvento
+                }
+                 );
             }
 
 

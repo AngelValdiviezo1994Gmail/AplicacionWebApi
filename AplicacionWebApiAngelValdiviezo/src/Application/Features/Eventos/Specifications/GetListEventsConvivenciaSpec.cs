@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AngelValdiviezoWebApi.Application.Features.Eventos.Specifications
 {
-    public class GetListEventsConvivenciaSpec : Specification<EventosModels>
+    public class GetListEventsConvivenciaSpec : Specification<tblEventoNextTi>
     {
         public GetListEventsConvivenciaSpec()
         {
