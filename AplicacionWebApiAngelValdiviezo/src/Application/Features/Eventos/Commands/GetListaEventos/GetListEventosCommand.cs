@@ -29,12 +29,12 @@ namespace AngelValdiviezoWebApi.Application.Features.Eventos.Commands.GetListaEv
         {
             try
             {
-                //_repositoryEventosAsync.AddAsync
-                //_repositoryEventosAsync.UpdateAsync
                 var data = await  _repositoryEventosAsync.ListAsync(new GetListEventsConvivenciaSpec(), cancellationToken);
 
                 if (!data.Any())
-                    return new ResponseType<List<EventosType>>() { Data = null, Message = "No existen eventos en base", StatusCode = "001", Succeeded = false };
+                {
+                    return new ResponseType<List<EventosType>>() { Data = null, Message = "No existen registros en base", StatusCode = "001", Succeeded = false };
+                }
 
 
                 var response = ProcesoListadoEventos(data);
