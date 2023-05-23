@@ -41,6 +41,8 @@
 
   <ItemGroup>
     <Folder Include="Features\Acontecimientos\Queries\" />
+    <Folder Include="Features\Clientes\Dto\" />
+    <Folder Include="Features\Clientes\Specifications\" />
     <Folder Include="Features\Eventos\Queries\" />
   </ItemGroup>
 

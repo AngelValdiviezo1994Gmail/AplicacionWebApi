@@ -4,7 +4,6 @@ using AngelValdiviezoWebApi.Application.Common.Wrappers;
 using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Interfaces;
 using AngelValdiviezoWebApi.Application.Features.Acontecimientos.Specifications;
 using AngelValdiviezoWebApi.Domain.Entities.Acontecimientos;
-using AngelValdiviezoWebApi.Domain.Entities.Notificacion;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

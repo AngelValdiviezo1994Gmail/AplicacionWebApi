@@ -2,12 +2,14 @@
 
 
 using AngelValdiviezoWebApi.Domain.Entities.Acontecimientos;
+using AngelValdiviezoWebApi.Domain.Entities.Clientes;
 using AngelValdiviezoWebApi.Domain.Entities.Eventos;
 using Microsoft.EntityFrameworkCore;
 namespace AngelValdiviezoWebApi.Persistence.Contexts;
 
 public class ApplicationDbContext : DbContext
 {
+    //Declarar siempre todos los modelosa usar
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
         ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
@@ -16,6 +18,7 @@ public class ApplicationDbContext : DbContext
     
     public DbSet<tblEventoNextTi> eventosModels => Set<tblEventoNextTi>();
     public DbSet<AcontecimientosModels> acontecimientosModels => Set<AcontecimientosModels>();
+    public DbSet<ClientesModels> clientesModels => Set<ClientesModels>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
